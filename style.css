@@ -38,8 +38,8 @@ body a:hover
 
 .doc-loader img
 {
-    width: 90px;
-    height: 90px;        
+    width: 180px;
+    height: 180px;        
 }
 
 .content-1170
@@ -149,7 +149,7 @@ body a:hover
 
 .section-title-holder
 {
-    background-color: #32DB8A;
+    background-color: indigo;
     width: 370px;
     height: 370px;    
     z-index: 2;
@@ -174,9 +174,9 @@ body a:hover
     width: 245px;
     word-break: break-all;
     line-height: 83px;
-    margin-top: 10px;
+    margin-top: 40px;
     color: white;
-    margin-left: 115px;
+    margin-left: 40px;
     text-transform: uppercase;
     letter-spacing: -3px;
     padding: 0;
@@ -269,7 +269,7 @@ body a:hover
 
 .top-logo
 {
-    width: 160px !important;    
+    width: 250px !important;    
     padding-top: 150px;
 }
 
@@ -323,7 +323,7 @@ h1.big-title
 
 #services .section-title-holder
 {
-    background-color: #32DB8A
+    background-color: #72FF13;
 }
 
 #services .section-title-holder span
@@ -377,7 +377,7 @@ h1.big-title
 
 #portfolio .section-title-holder
 {
-    background-color: rgb(255, 186, 66);
+    background-color: indigo;
 }
 
 #portfolio .section-title-holder span
@@ -574,7 +574,7 @@ div.pp_default .pp_loaderIcon
 
 #about .section-title-holder
 {
-    background-color: #e64b77;
+    background-color: #72FF13;
 }
 
 #about .section-title-holder span
@@ -598,6 +598,7 @@ div.pp_default .pp_loaderIcon
 {
     width: 370px;
     float: right;
+    margin-right: 60px;
 }
 
 .member-image-holder img
@@ -898,7 +899,7 @@ a.video-popup-holder:hover img.popup-play
 
 #contact .section-title-holder
 {
-    background-color: rgb(230, 75, 119);
+    background-color: #72FF13;
 }
 
 #contact .section-title-holder span
@@ -1239,12 +1240,14 @@ footer
 
     .section-title-holder h2
     {
-        font-size: 80px;
-        width: 177px;        
+        font-size: 45px;
+        width: 500px;        
         line-height: 66px;
         margin-top: 25px;        
-        margin-left: 75px; 
+        margin-left: 25px; 
     }
+
+    
 
     .section-content-holder.right 
     {
@@ -1701,4 +1704,23 @@ footer
     {
         top: -84px;
     }
+}
+
+
+
+
+.try{
+    width: 300px;
+    font-size: 30px;
+}
+
+
+#payment{
+    margin: 0px;
+    background-color: rgb(34, 28, 90); 
+    background-image: url("demo-images/background_img_03.jpg"); 
+    background-repeat: no-repeat; 
+    background-position: center top; 
+    background-size: cover; 
+    z-index: 7;
 }
