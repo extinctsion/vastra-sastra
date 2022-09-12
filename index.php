@@ -1,3 +1,55 @@
+<?php
+// import phpmailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Load composer autoload
+require 'vendor/autoload.php';
+if(isset($_POST["submit"]))
+{
+    // Admins Address
+    $email='preyumkrsingh@gmail.com';
+    $name=$_POST['your-name'];
+    $uemail=$_POST['your-email'];
+    $subject=$_POST['your-subject'];
+    $message=$_POST['your-message'];
+    // $appointment=$_POST['your-appointment'];
+    $timestamp=$_POST['your-appointment'];
+    $date=date('d-m-Y',strtotime($timestamp));
+    $time=date('g:i A',strtotime($timestamp));
+    // date('Y-m-d\TH:i')
+   
+    $mail = new PHPMailer(true);
+    try{
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'vastrasastra.mailservice@gmail.com';
+        // main password @#VastraSastra67415#@ 
+        $mail->Password = 'utjneabngxjwqqdk';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+        // Mailer Name can be changed by changing second argument
+        $mail->setFrom('vastrasastra.mailservice@gmail.com','Vastra-Sastra Mailer');
+        $mail->addAddress($email,"Admin Vastra Sastra");
+        $mail->isHTML(true);
+        $mail->Subject = "Mail from ". $name;
+        // Body of the message
+        $mail->Body = '<p style="font-size: 20px;"><i style="color:#E5E5E5;font-size: 20px;">Message from </i> <i style="font-size: 20px;">'.$uemail.'</i><br><br>'.
+                    '<i style="font-size: 16px;">Name: </i><b style="font-size: 16px;color:#E5E5E5;">'.$name.'</b><br>'.
+                    '<i style="font-size: 16px;">Subject: </i><b style="font-size: 16px;color:#E5E5E5;">'.$subject.'</b><br>'.'
+                    <i style="font-size: 16px;">Appointment request: </i><b style="font-size: 16px;color:#E5E5E5;">'.$date." ".$time.'</b><br>'.
+                    '<i style="font-size: 16px;">Message: </i><br><br><b style="font-size: 16px;color:#E5E5E5;">'.$message.'</b></p>';
+        $mail->send();
+        echo '<script>alert("Your message have been sent to the Owner")</script>';
+    }catch(Exception $e){
+        echo '<script>alert("Message could not be sent due to error!")</script>';
+    }
+}
+  ?>
+
 <!DOCTYPE HTML> 
 <html lang="en-US">
     <head>
@@ -18,6 +70,7 @@
         <link rel="stylesheet" type="text/css"  href='css/prettyPhoto.css' />
         <link rel="stylesheet" type="text/css"  href='css/sm-clean.css' />
         <link rel="stylesheet" type="text/css"  href='style.css' />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
         <!--[if lt IE 9]>
                 <script src="js/html5.js"></script>
@@ -417,8 +470,9 @@
 
         <!-- Skills -->
 
-        
 
+
+        
         <!-- Contact -->
         <div id="contact" class="section">
             <div class="block content-1170 center-relative">
@@ -432,15 +486,24 @@
                             <br>
                             <p><strong><span style="color: #e64b77;">Incididunt ut dolore</span></strong> magna labore eiusmod. Dolor sit amet consectetur est adipisicing elit, sed do eiusmod.</p>
                         </div>
+                        <!-- form starting -->
+                        <form id= "sendmsg" name="message" method="post" >
                         <div class="one_half last">
                             <div class="contact-form">
-                                <p><input id="name" type="text" name="your-name" placeholder="Name"></p>
-                                <p><input id="contact-email" type="email" name="your-email" placeholder="Email"></p>
-                                <p><input id="subject" type="text" name="your-subject" placeholder="Subject"></p>
-                                <p><textarea id="message" name="your-message" placeholder="Message"></textarea></p>
-                                <p><input type="submit" onClick="SendMail()" value="SEND"></p>
+                                <p><input id="name" type="text" name="your-name" placeholder="Name" required></p>
+                                <p><input id="contact-email" type="email" name="your-email" placeholder="Email" required></p>
+                                <p><input id="subject" type="text" name="your-subject" placeholder="Subject" required></p>
+                                <p><textarea id="message" name="your-message" placeholder="Message" required></textarea></p><br>
+                                <?php date_default_timezone_set('Asia/Kolkata');?>
+                                <p style="font-size: 16px; color:black; padding-bottom:8px;">Select appointment date and time</p>
+                                <p><input style="color: darkslategray; font-family: revert;" type="datetime-local" value="<?php echo date('Y-m-d\TH:i');?>" name="your-appointment"></p>
+                                <!-- <p><input type="submit" onClick="SendMail()" value="SEND"></p> -->
+                                <p><input type="submit" name="submit" value="Submit"></p>
                             </div>
                         </div>
+                        </form>
+                        <!-- 2018-06-12T19:30 -->
+                        <!-- form ending -->
                         <div class="clear"></div>
                     </div>
                     <div class="full-width">
