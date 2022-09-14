@@ -926,6 +926,7 @@ a.video-popup-holder:hover img.popup-play
 .contact-form
 {
     max-width: 100%;
+    /* height: 20px; */
     width: 770px;
     margin: 0 auto;
     font-size: 22px;
@@ -950,8 +951,8 @@ p.custom-field-class
     color: #23214c;
     border: 0;
     border-bottom: 1px solid #1c1c1c;
-    height: 28px;    
     font-size: 16px;
+    height: 48px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     width: 100%;
@@ -965,6 +966,7 @@ p.custom-field-class
     color: #23214c;
     font-weight: 400;
     font-size: 16px;
+    height: 48px;
     line-height: 25px;
 }
 .contact-form input[type=text]::-moz-placeholder, .contact-form input[type=email]::-moz-placeholder, .contact-form textarea::-moz-placeholder
@@ -973,6 +975,7 @@ p.custom-field-class
     color: #23214c;
     font-weight: 400;
     font-size: 16px;
+    height: 48px;
     line-height: 25px;
     opacity: 1;
 }
@@ -981,6 +984,7 @@ p.custom-field-class
     font-family: 'Roboto', sans-serif;
     color: #23214c;
     font-weight: 400;
+    height: 48px;
     font-size: 16px;
     line-height: 25px;
 }
@@ -989,6 +993,7 @@ p.custom-field-class
     font-family: 'Roboto', sans-serif;
     color: #23214c;
     font-weight: 400;
+    height: 48px;
     font-size: 16px;
     line-height: 25px;
     opacity: 1;
@@ -996,7 +1001,7 @@ p.custom-field-class
 
 .contact-form input[type=text], .contact-form input[type=email]
 {
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     margin-bottom: 25px;
 }
 
